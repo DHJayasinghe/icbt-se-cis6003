@@ -277,8 +277,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="box-footer">
-                                                            <button type="submit" class="btn btn-primary pull-right">Delete Profile</button>
-                                                            <button type="reset" class="btn btn-default pull-right">Cancel</button>
+                                                            <button type="reset" class="btn btn-default pull-right">Go Back</button>
+                                                            <button type="submit" class="btn btn-danger pull-right"><i class="fa fa-trash"></i> Yes, Continue</button>
                                                         </div>
                                                     </form>
                                                 </div>

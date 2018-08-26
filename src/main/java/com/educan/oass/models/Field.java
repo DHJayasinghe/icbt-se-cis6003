@@ -9,6 +9,14 @@ public class Field {
     private String fieldName;
     private String description;
 
+    public Field() {
+    }
+
+    public Field(String fieldName, String description) {
+        this.fieldName = fieldName;
+        this.description = description;
+    }
+
     public int getFieldId() {
         return fieldId;
     }

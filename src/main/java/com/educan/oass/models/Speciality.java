@@ -9,6 +9,15 @@ public class Speciality {
     private String fieldName;   //accept array of field Ids separated by comma
     private String countryName; //accept array of country Ids separated by comma
 
+    public Speciality() {
+    }
+
+    public Speciality(int consultantId, String fieldName, String countryName) {
+        this.consultantId = consultantId;
+        this.fieldName = fieldName;
+        this.countryName = countryName;
+    }
+    
     public int getConsultantId() {
         return consultantId;
     }

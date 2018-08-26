@@ -10,7 +10,7 @@ public class Student {
 
     private int studentId;
     private String email;
-    
+
     private String firstName;
     private String lastName;
     private String gender;
@@ -25,6 +25,27 @@ public class Student {
     private String city;
     private String postal;
     private String country;
+
+    public Student() {
+    }
+
+    public Student(int studentId, String email, String firstName, String lastName, String gender, String title, Date dateOfBirth, String qualification, String phoneNumber, String mobileNumber, String building, String street, String city, String postal, String country) {
+        this.studentId = studentId;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.title = title;
+        this.dateOfBirth = dateOfBirth;
+        this.qualification = qualification;
+        this.phoneNumber = phoneNumber;
+        this.mobileNumber = mobileNumber;
+        this.building = building;
+        this.street = street;
+        this.city = city;
+        this.postal = postal;
+        this.country = country;
+    }
 
     public int getStudentId() {
         return studentId;

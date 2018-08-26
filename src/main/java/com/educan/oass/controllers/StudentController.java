@@ -2,11 +2,8 @@ package com.educan.oass.controllers;
 
 import com.educan.oass.common.ResponseToken;
 
-import com.educan.oass.dao.AppointmentDAO;
 import com.educan.oass.dao.StudentDAO;
 
-import com.educan.oass.models.Appointment;
-import com.educan.oass.models.AppointmentTime;
 import com.educan.oass.models.SignIn;
 import com.educan.oass.models.SignUp;
 import com.educan.oass.models.Student;
@@ -16,8 +13,6 @@ import com.educan.oass.services.EmailConfirmation;
 import com.educan.oass.services.LoginAutherization;
 import com.educan.oass.services.LoginIdentity;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,10 +20,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -39,12 +32,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class StudentController {
     LoginAutherization logAuth;
     LoginIdentity identity;
-    AppointmentDAO appntmntDB;
-
-    public StudentController() {
-        appntmntDB=new AppointmentDAO();
-    }
-    
     
     @RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
     public String index(ModelMap map) {
@@ -130,7 +117,7 @@ public class StudentController {
     }
     
     @RequestMapping(value = "/signup/confirm/{token}/", method = RequestMethod.GET)
-    private String emailConfirm(@PathVariable String token, ModelMap map) {
+    public String confirmEmail(@PathVariable String token, ModelMap map) {
         map.put("title", "Sign Up");
         
         try {
@@ -150,7 +137,7 @@ public class StudentController {
     }
     
     @RequestMapping(value = "/signup/complete", method = RequestMethod.POST)
-    private String signupComplete(SignUp model, ModelMap map) {
+    public String signupComplete(SignUp model, ModelMap map) {
         map.put("title", "Sign Up");
         
         try {
@@ -184,7 +171,7 @@ public class StudentController {
     }
     
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public String profile(@CookieValue("Authorization") String token, ModelMap map) {
+    public String viewProfile(@CookieValue("Authorization") String token, ModelMap map) {
         map.put("title", "Profile");
         //pass Authorization cookie token from request for verification
         logAuth = new LoginAutherization(AuthRequest.VERIFY,token, null);
@@ -192,7 +179,7 @@ public class StudentController {
         
         //if Autherization token is not valid | not exist => redirect to signin page
         if (result.getCode() == 1) {
-            identity = logAuth.identity(); //get logged in student payload
+            identity = logAuth.identity(); //student identity
             Student student = new StudentDAO().details(identity.getUsername());
             
             map.put("student", student);
@@ -206,7 +193,7 @@ public class StudentController {
     }
     
     @RequestMapping(value = "/profile/update", method = RequestMethod.POST)
-    public String profileUpdate(@CookieValue("Authorization") String token, Student model, ModelMap map) {
+    public String updateProfile(@CookieValue("Authorization") String token, Student model, ModelMap map) {
         map.put("title", "Profile");
         //pass Authorization cookie token from request for verification
         logAuth = new LoginAutherization(AuthRequest.VERIFY,token, null);
@@ -214,7 +201,7 @@ public class StudentController {
         
         //if Autherization token is not valid or not exist redirect to signin page
         if (result.getCode() == 1) {
-            identity = logAuth.identity(); //get logged in student payload
+            identity = logAuth.identity(); //student identity
             
             model.setEmail(identity.getUsername());   //set model email with payload username before submit data to db
             result = new StudentDAO().update(model,identity);
@@ -235,8 +222,8 @@ public class StudentController {
         return "redirect:/student/signin";
     }
     
-    @RequestMapping(value = "/appointment", method = RequestMethod.GET)
-    public String appointment(@CookieValue("Authorization") String token, ModelMap map) {
+    @RequestMapping(value = "/appointment/create", method = RequestMethod.GET)
+    public String appointmentCreate(@CookieValue("Authorization") String token, ModelMap map) {
         map.put("title", "Appointment");
         
         ResponseToken result = new LoginAutherization(AuthRequest.VERIFY,token, null).verify();
@@ -250,26 +237,18 @@ public class StudentController {
         }
     }
     
-    @RequestMapping(value="/appointment/timetable/{consultantId}/{appointmntDate}", method=RequestMethod.GET, produces = "application/json")
-    public @ResponseBody List<AppointmentTime> appointmentTimetable(@CookieValue("Authorization") String token,@PathVariable int consultantId,@PathVariable String appointmntDate){
-        ResponseToken result = new LoginAutherization(AuthRequest.VERIFY,token, null).verify();
-        if (result.getCode() == 1) {
-            return appntmntDB.timeTable(consultantId, appointmntDate);
-        }else{
-            return null;
-        }
-    }
-    
-    @RequestMapping(value="/appointment/create", method=RequestMethod.POST, produces = "application/json")
-    public @ResponseBody ResponseToken appointmentCreate(@CookieValue("Authorization") String token,@RequestBody Appointment model){
-        logAuth = new LoginAutherization(AuthRequest.VERIFY,token, null);
-        ResponseToken result = logAuth.verify();
+    @RequestMapping(value = "/appointment/cancel", method = RequestMethod.GET)
+    public String appointmentCancel(@CookieValue("Authorization") String token, ModelMap map) {
+        map.put("title", "Appointment");
         
+        ResponseToken result = new LoginAutherization(AuthRequest.VERIFY,token, null).verify();
+        
+        //if Autherization token is not valid | not exist => redirect to signin page
         if (result.getCode() == 1) {
-            identity = logAuth.identity(); //get logged in student payload
-            return appntmntDB.add(model, identity);
-        }else{
-            return null;
+            return "cancelAppointment";
+        } else {
+            map.put("responseMsg", result.getMessage());
+            return "redirect:/student/signin";
         }
     }
 }

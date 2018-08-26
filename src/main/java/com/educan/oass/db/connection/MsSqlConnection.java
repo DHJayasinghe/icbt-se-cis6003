@@ -14,7 +14,7 @@ public class MsSqlConnection implements DbConnection {
     static final String JDBC_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     static final String DB_URL = "jdbc:sqlserver://DESKTOP-OVL1JFQ;databaseName=OAS_EduCanDB;";
     
-    //Database credentials (tempory save on const variable)
+    //Database credentials (temporary save on const variable)
     static final String USER = "sa";
     static final String PASS = "Dhanu4864";
     

@@ -1,5 +1,6 @@
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\services\LoginIdentity.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\security\jwt\AlgorithmException.java
+E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\models\AppointmentSummary.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\db\connection\DbConnection.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\dao\ConsultFieldDAO.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\models\Appointment.java
@@ -10,6 +11,7 @@ E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\O
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\db\connection\MsSqlConnection.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\controllers\FieldController.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\models\Address.java
+E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\services\MailTemplate.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\controllers\HomeController.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\dao\DbMethods.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\dao\StudentDAO.java
@@ -32,6 +34,7 @@ E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\O
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\services\EmailConfirmation.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\security\jwt\Jwt.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\common\ResponseToken.java
+E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\services\Email.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\controllers\AdminController.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\controllers\AppointmentController.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\config\WebInitializer.java

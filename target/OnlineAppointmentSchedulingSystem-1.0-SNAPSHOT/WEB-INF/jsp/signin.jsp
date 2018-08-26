@@ -3,11 +3,11 @@
     Created on : Jul 16, 2018, 7:03:20 PM
     Author     : User
 --%>
-
+    
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="cp" value="${pageContext.request.servletContext.contextPath}" scope="request" />
-
+    
 <%--
 The “taglib” is included to allow the context path to be popped into the request (HttpServletRequest) 
 when the page renders. {cp} renders the contextPath "/OnlineAppointmentSchedulingSystem"
@@ -47,7 +47,7 @@ ${msg} is used to render the key-value-pair set in the ModelMap in the controlle
         <link rel="stylesheet" href="${cp}/resources/css/AdminLTE.min.css">
         <!-- iCheck -->
         <link rel="stylesheet" href="${cp}/resources/plugins/iCheck/square/blue.css">
-
+            
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -63,14 +63,14 @@ ${msg} is used to render the key-value-pair set in the ModelMap in the controlle
             <!-- /.login-logo -->
             <div class="login-box-body">
                 <p class="login-box-msg">Sign in to start your session</p>
-
+                    
                 <form action="${cp}/student/signin" method="post">
                     <div class="form-group has-feedback">
-                        <input type="email" name="username" class="form-control" placeholder="Email" maxlength="256" autocomplete="off">
+                        <input type="email" name="username" class="form-control" placeholder="Email" maxlength="256"/>
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" name="password" class="form-control" placeholder="Password" maxlength="100" autocomplete="off">
+                        <input type="password" name="password" class="form-control" placeholder="Password" maxlength="100"/>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
@@ -91,15 +91,15 @@ ${msg} is used to render the key-value-pair set in the ModelMap in the controlle
                         <!-- /.col -->
                     </div>
                 </form>
-
+                    
                 <a href="#">I forgot my password</a><br>
                 <a href="${cp}/student/signup" class="text-center">Register a new membership</a>
-
+                    
             </div>
             <!-- /.login-box-body -->
         </div>
         <!-- /.login-box -->
-
+            
         <!-- jQuery 2.2.0 -->
         <script src="${cp}/resources/plugins/jQuery/jQuery-2.2.0.min.js"></script>
         <!-- Bootstrap 3.3.6 -->

@@ -109,11 +109,12 @@
                                 <span>Student Profile</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="${cp}/student/appointment">
-                                <i class="fa fa-th"></i>
-                                <span>Appointment</span>
-                            </a>
+                        <li class="treeview">
+                            <a href="javascript:void(0)"><i class="fa fa-th"></i> <span>Appointment</span></a>
+                            <ul class="treeview-menu">
+                                <li><a href="${cp}/student/appointment/create"><i class="fa fa-circle-o"></i> Make Appointment</a></li>
+                                <li><a href="${cp}/student/appointment/cancel"><i class="fa fa-circle-o"></i> Cancel Appointment</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </section>

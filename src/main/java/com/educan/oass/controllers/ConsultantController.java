@@ -92,7 +92,7 @@ public class ConsultantController {
     }
     
     @RequestMapping(value="/speciality/details/{id}", method=RequestMethod.GET, produces = "application/json")
-    public @ResponseBody Speciality specialityDetails(@PathVariable String id){
+    public @ResponseBody Speciality speciality(@PathVariable String id){
         Speciality result=new Speciality();
         result.setConsultantId(Integer.parseInt(id));
         result.setFieldName(consultFieldDB.details(id).getFieldName());
@@ -106,7 +106,7 @@ public class ConsultantController {
      * @return
      */
     @RequestMapping(value="/speciality/update", method=RequestMethod.POST, produces = "application/json")
-    public @ResponseBody ResponseToken specialityUpdate(@RequestBody Speciality model){
+    public @ResponseBody ResponseToken updateSpeciality(@RequestBody Speciality model){
         ResponseToken result=consultCntryDB.update(model, identity);
         if(result.getCode()==1)
             result=consultFieldDB.update(model, identity);
@@ -119,7 +119,7 @@ public class ConsultantController {
      * @return ConsultantProfile
      */
     @RequestMapping(value="/profile/{id}", method=RequestMethod.GET, produces = "application/json")
-    public @ResponseBody ConsultantProfile consultantProfile(@PathVariable String id){
+    public @ResponseBody ConsultantProfile profile(@PathVariable String id){
         return consultDB.profile(id);
     }
 }

@@ -8,6 +8,13 @@ public class Country {
     private int countryId;
     private String countryName;
 
+    public Country() {
+    }
+
+    public Country(String countryName) { 
+        this.countryName = countryName;
+    }
+
     public int getCountryId() {
         return countryId;
     }
@@ -23,6 +30,4 @@ public class Country {
     public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
-    
-    
 }

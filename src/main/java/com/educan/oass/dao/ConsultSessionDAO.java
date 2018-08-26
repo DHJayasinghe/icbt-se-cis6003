@@ -1,7 +1,7 @@
 package com.educan.oass.dao;
 
-import com.educan.oass.common.ResponseToken;
 
+import com.educan.oass.common.ResponseToken;
 import com.educan.oass.db.connection.MsSqlConnection;
 
 import com.educan.oass.models.ConsultSession;

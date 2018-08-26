@@ -18,6 +18,22 @@ public class Consultant {
     private String qualification;
     private String phoneNumber;
     private String mobileNumber;
+
+    public Consultant() {
+    }
+
+    public Consultant(int consultantId, String email, String firstName, String lastName, String gender, String title, Date dateOfBirth, String qualification, String phoneNumber, String mobileNumber) {
+        this.consultantId = consultantId;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.title = title;
+        this.dateOfBirth = dateOfBirth;
+        this.qualification = qualification;
+        this.phoneNumber = phoneNumber;
+        this.mobileNumber = mobileNumber;
+    }
     
     public int getConsultantId() {
         return consultantId;

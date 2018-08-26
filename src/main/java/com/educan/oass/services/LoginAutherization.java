@@ -148,7 +148,7 @@ public class LoginAutherization {
      *
      * capture from @CookieValue("Authorization") attribute on controller
      * passing to this.token for verification
-     * @return
+     * @return ResponseToken
      */
     public ResponseToken verify() {
         
@@ -185,7 +185,9 @@ public class LoginAutherization {
      * generate & assign new token in "Authorization" Cookie for incoming
      * authenticated users HttpServletResponse with cookie expiration same as
      * the jwt expiration time
-     * @return
+     * @param response HttpServletResponse
+     * @param request HttpServletRequest
+     * @return HttpServletResponse
      */
     public HttpServletResponse generate(HttpServletResponse response, HttpServletRequest request) {
         Cookie authCookie = new Cookie("Authorization", this.getToken());
@@ -198,6 +200,9 @@ public class LoginAutherization {
     
     /**
      * Destroy Autherization cookies on Logout
+     * @param response HttpServletResponse
+     * @param request HttpServletRequest
+     * @return HttpServletResponse 
      */
     public HttpServletResponse destroy(HttpServletResponse response, HttpServletRequest request){
         Cookie authCookie = new Cookie("Authorization", null);

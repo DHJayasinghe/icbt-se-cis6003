@@ -42,7 +42,7 @@
                 text-transform: uppercase;
                 display: block;
             }
-            .btn-book{
+            .btn-book-custom{
                 padding-top: 3px;
                 padding-bottom: 3px;
             }
@@ -127,10 +127,11 @@
                             </a>
                         </li>
                         <li class="treeview active">
-                            <a href="${cp}/student/appointment">
-                                <i class="fa fa-th"></i>
-                                <span>Appointment</span>
-                            </a>
+                            <a href="javascript:void(0)"><i class="fa fa-th"></i> <span>Appointment</span></a>
+                            <ul class="treeview-menu">
+                                <li class="active"><a href="${cp}/student/appointment/create"><i class="fa fa-circle-o"></i> Make Appointment</a></li>
+                                <li><a href="${cp}/student/appointment/cancel"><i class="fa fa-circle-o"></i> Appointment History</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </section>
@@ -352,6 +353,7 @@
                     },
                     success: function (data, textStatus, jQxhr) {
                         //console.log(data);
+                        alert(data.message);
                         if(data.code===1){
                             $('#formSearchTimeTable').submit(); //refresh datatable
                         }
@@ -387,33 +389,35 @@
                             "orderable":false,
                             "render": function (data, type, full, meta) {
                                 if(data.available==='A') //if record is active
-                                    return '<a href="javascript:void(0)" class="btn btn-primary btn-book text-primary btn-book" title="Book Now"><i class="fa fa-bookmark-o"></i>&nbsp;Book</a>';
-                                return '<small class="label bg-red" style="font-size: 13px;">Not Available</small>';
+                                    return '<button type="button" class="btn btn-primary text-primary btn-book-custom btn-book" title="Book Now"><i class="fa fa-bookmark-o"></i>&nbsp;Schedule</button>';
+                                
+                                return '<button type="button" class="btn btn-warning text-primary btn-book-custom" disabled><i class="fa fa-bookmark-o"></i>&nbsp;Schedule\n\
+                        </button>';
                             }
                         },
                         {
                             "data": null,
                             "defaultContent": '',
                             "render": function (data, type, full, meta) {
-                                return '<span class="appntment-text">'+ data.sessionDate +' ('+ data.sessionWeekDay +')</span>';
+                                return '<span class="appntment-text">'+ data.sessionWeekDay +', '+ data.sessionDate +'</span>';
                             }
                         },
                         {
                             "data": null,
                             "defaultContent": '',
                             "render": function (data, type, full, meta) {
-                                return '<span class="appntment-text">'+ data.sessionTimeFrom+' to '+data.sessionTimeTo +'</span>';
+                                return '<span class="appntment-text"><span class="text-danger text-bold">'+ data.sessionTimeFrom+'</span> - <span class="text-danger text-bold">'+data.sessionTimeTo +'</span></span>';
                             }
                         }
                     ],
                     "pagingType": "full_numbers",
                     "searching": false,
                     "lengthChange":false,
-                    "order": [[1, 'asc']],
+                    "order": [[2, 'asc'],[0, 'desc']],
                     "destroy": true,
                     "fnRowCallback": function (nRow, data, iDisplayIndex, iDisplayIndexFull) {
                         $(nRow).off(); // Unbind Events
-                        $(nRow).on('click', 'a.btn-book', function (e) {
+                        $(nRow).on('click', '.btn-book', function (e) {
                             var appointment={
                                 fieldId:srchParaObj.studyfieldId,
                                 sessionId:data.sessionId,
@@ -421,9 +425,12 @@
                                 scheduledTimeFrom:data.scheduledTimeFrom,
                                 scheduledTimeTo:data.scheduledTimeTo
                             };
-                            console.log(appointment);
+                            //console.log(appointment);
                             if(!isNaN(data.sessionId)){
-                                setStudentAppointment(appointment);
+                                var r = confirm("Do you want to make this appointment? Please confirm your choice.");
+                                if (r === true) {
+                                    setStudentAppointment(appointment);
+                                }
                             }
                         });
                     }

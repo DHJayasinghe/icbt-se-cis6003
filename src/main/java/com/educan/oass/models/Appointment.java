@@ -14,6 +14,18 @@ public class Appointment {
     private String scheduledTimeFrom;
     private String scheduledTimeTo;
 
+    public Appointment() {
+    }
+
+    public Appointment(int appointmentId, int fieldId, int sessionId, Date scheduledDate, String scheduledTimeFrom, String scheduledTimeTo) {
+        this.appointmentId = appointmentId;
+        this.fieldId = fieldId;
+        this.sessionId = sessionId;
+        this.scheduledDate = scheduledDate;
+        this.scheduledTimeFrom = scheduledTimeFrom;
+        this.scheduledTimeTo = scheduledTimeTo;
+    }
+
     public int getAppointmentId() {
         return appointmentId;
     }

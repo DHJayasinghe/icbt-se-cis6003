@@ -30,12 +30,21 @@ public class HomeController {
         return "student";
     }
     
-    /**
-     * Consultant Availability
-     */
     @RequestMapping(value = {"/consultant/session", "/consultant/session/"}, method = RequestMethod.GET)
     public String availability(ModelMap map) {
-        map.put("title", "Availability");
-        return "availability";
+        map.put("title", "Consultant Session");
+        return "adminConsultantSession";
+    }
+    
+    @RequestMapping(value = {"/appointment", "/appointment/"}, method = RequestMethod.GET)
+    public String appointment(ModelMap map){
+        map.put("title","Appointment");
+        return "adminAppointment";
+    }
+    
+    @RequestMapping(value = {"/report", "/report/"}, method = RequestMethod.GET)
+    public String report(ModelMap map){
+        map.put("title","Summary Report");
+        return "adminReport";
     }
 }
