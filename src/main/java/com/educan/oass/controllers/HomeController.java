@@ -42,9 +42,15 @@ public class HomeController {
         return "adminAppointment";
     }
     
-    @RequestMapping(value = {"/report", "/report/"}, method = RequestMethod.GET)
-    public String report(ModelMap map){
+    @RequestMapping(value = {"/report1", "/report1/"}, method = RequestMethod.GET)
+    public String report1(ModelMap map){
         map.put("title","Summary Report");
-        return "adminReport";
+        return "adminReport1";
+    }
+    
+    @RequestMapping(value = {"/report2", "/report2/"}, method = RequestMethod.GET)
+    public String report2(ModelMap map){
+        map.put("title","Summary Report");
+        return "adminReport2";
     }
 }

@@ -39,9 +39,12 @@ E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\O
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\controllers\AppointmentController.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\config\WebInitializer.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\models\Speciality.java
+E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\controllers\ReportController.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\models\ConsultantProfile.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\security\jwt\Algorithm.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\services\GmailSmtp.java
+E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\dao\ReportSummaryDAO.java
+E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\models\AppointmentSummaryReport.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\dao\ConsultSessionDAO.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\config\Config.java
 E:\ICBT - SE PROGRAM\Advanced Programming (CIS6003)\Assignment\Web Application\OnlineAppointmentSchedulingSystem\src\main\java\com\educan\oass\dao\AppointmentDAO.java
