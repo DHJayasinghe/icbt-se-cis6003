@@ -21,6 +21,7 @@ public class EmailConfirmation{
     private String body;
     private String to;
     private String token;   //email token
+    private String rooturl;
     
     private EmailConfirmation() {
         this.KEY= "EmailConfirm@p6SAT<iA[wQ[<J0o-|-SaYD<x=]r{oEf(5WBeQZ7$d(c(V7N#BUDgxk";
@@ -29,6 +30,7 @@ public class EmailConfirmation{
         this.ALG = Algorithm.HS256;
         
         this.subject = "Confirm your email";
+        this.rooturl="http://localhost:8084/educan.oas";
     }
     
     public EmailConfirmation(AuthRequest requestTpe, String to, String token, LoginIdentity payload) {
@@ -49,10 +51,10 @@ public class EmailConfirmation{
         
         return this.token;
     }
-
+    
     public Object generate() {
         this.setToken(getToken());
-        body = "<h3>Thanks for Registering with EduCan.lk. Please confirm your email, so we know it's really you.</h3><br/><a href='http://localhost:8084/educan.oas/student/signup/confirm/" + token + "/'>Confirm Email</a>";
+        body = "<h3>Thanks for Registering with EduCan.lk. Please confirm your email, so we know it's really you.</h3><br/><a href='" + rooturl + "/student/signup/confirm/" + token + "/'>Confirm Email</a>";
         GmailSmtp mail = new GmailSmtp(to, subject, body);
         boolean success = mail.SendEmail();
         
