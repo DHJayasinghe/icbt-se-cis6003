@@ -137,7 +137,7 @@ public class StudentController {
     }
     
     @RequestMapping(value = "/signup/complete", method = RequestMethod.POST)
-    public String signupComplete(SignUp model, ModelMap map) {
+    public String signupComplete(SignUp model, ModelMap map, HttpServletResponse response, HttpServletRequest request) {
         map.put("title", "Sign Up");
         
         try {
@@ -153,8 +153,10 @@ public class StudentController {
                 StudentDAO student = new StudentDAO();
                 result = student.add(model,null);    //complete model process
                 
-                if (result.getCode() == 1)
+                if (result.getCode() == 1){
+                    response = new LoginAutherization(AuthRequest.GENERATE, null,identity).generate(response,request);
                     return "redirect:/student/profile";
+                }
                 else if(result.getCode()==0)
                     map.put("responseMsg", result.getMessage());
                 else
@@ -226,10 +228,14 @@ public class StudentController {
     public String appointmentCreate(@CookieValue("Authorization") String token, ModelMap map) {
         map.put("title", "Appointment");
         
-        ResponseToken result = new LoginAutherization(AuthRequest.VERIFY,token, null).verify();
+        logAuth = new LoginAutherization(AuthRequest.VERIFY,token, null);
+        ResponseToken result = logAuth.verify();
         
         //if Autherization token is not valid | not exist => redirect to signin page
         if (result.getCode() == 1) {
+            identity = logAuth.identity(); //student identity
+            
+            map.put("identity",identity);
             return "makeAppointment";
         } else {
             map.put("responseMsg", result.getMessage());
@@ -241,10 +247,14 @@ public class StudentController {
     public String appointmentCancel(@CookieValue("Authorization") String token, ModelMap map) {
         map.put("title", "Appointment");
         
-        ResponseToken result = new LoginAutherization(AuthRequest.VERIFY,token, null).verify();
+        logAuth = new LoginAutherization(AuthRequest.VERIFY,token, null);
+        ResponseToken result = logAuth.verify();
         
         //if Autherization token is not valid | not exist => redirect to signin page
         if (result.getCode() == 1) {
+            identity = logAuth.identity(); //student identity
+            
+            map.put("identity",identity);
             return "cancelAppointment";
         } else {
             map.put("responseMsg", result.getMessage());

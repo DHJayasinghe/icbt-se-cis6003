@@ -122,7 +122,7 @@
                         </li>
                         <li class="treeview active">
                             <a href="javascript:void(0)"><i class="fa fa-th"></i> <span>Appointment</span></a>
-                            <ul class="treeview-menu">
+                            <ul class="treeview-menu active menu-open">
                                 <li ><a href="${cp}/student/appointment/create"><i class="fa fa-circle-o"></i> Make Appointment</a></li>
                                 <li class="active"><a href="${cp}/student/appointment/cancel"><i class="fa fa-circle-o"></i> Cancel Appointment</a></li>
                             </ul>

@@ -14,6 +14,16 @@ public class SignIn {
     private boolean loginAttempt; //login attempt (false=fail | true=success)
     private String hashed;  //hashed password
 
+    public SignIn() {
+    }
+
+    public SignIn(String username, String password, boolean loginAttempt, String hashed) {
+        this.username = username;
+        this.password = password;
+        this.loginAttempt = loginAttempt;
+        this.hashed = hashed;
+    }
+
     public String getUsername() {
         return username;
     }

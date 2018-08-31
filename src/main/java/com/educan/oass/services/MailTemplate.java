@@ -23,7 +23,7 @@ public class MailTemplate {
     
     public Email templateApptCreate(AppointmentSummary apt){
         String body="";
-        body +="<h4>Hello "+apt.getStudentName()+",</h4><br><br>";
+        body +="<h4>Hello "+apt.getStudentName()+",</h4>";
         body +="<h4>Your appointment with "+ apt.getConsultantName()+ " on " + apt.getAppointmentDate() + " at " + apt.getAppointmentTime() +" is confirmed.</h4>";
         body+="";
         

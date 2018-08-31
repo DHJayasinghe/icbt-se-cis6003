@@ -39,7 +39,7 @@
             </div>
 
             <div class="register-box-body">
-                <p class="login-box-msg"><i class="fa fa-2x fa-envelop"></i><br><br>We have sent you a confirmation email. <br>Please check your email and confirm your email address.</p>
+                <p class="login-box-msg"><i class="fa fa-2x fa-envelope text-primary"></i><br><br>We have sent you a confirmation email. <br>Please check your email and confirm your email address.</p>
             </div>
         </div>
 

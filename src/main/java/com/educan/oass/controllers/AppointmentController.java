@@ -62,10 +62,11 @@ public class AppointmentController {
             model=(Appointment)result.getData();
             result.setData(null); //empty response data parameter
             
-            Email email= MailTemplate.getInstance().templateApptCreate(
-                    appntmntDB.details(Integer.toString(model.getAppointmentId())));
-            boolean issend=new GmailSmtp(email.getReceiver(), email.getSubject(), email.getBody()).SendEmail();
-            
+            if(result.getCode()==1){
+                Email email= MailTemplate.getInstance().templateApptCreate(
+                        appntmntDB.details(Integer.toString(model.getAppointmentId())));
+                boolean issend=new GmailSmtp(email.getReceiver(), email.getSubject(), email.getBody()).SendEmail();
+            }
             return result;
         }else{
             return null;

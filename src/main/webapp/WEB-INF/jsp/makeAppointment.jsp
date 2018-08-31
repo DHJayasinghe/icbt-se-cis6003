@@ -11,30 +11,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>EduCan | ${title}</title>
-        <!-- Tell the browser to be responsive to screen width -->
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" href="${cp}/resources/bootstrap/css/bootstrap.min.css">
-        <!-- DataTables -->
-        <link rel="stylesheet" href="${cp}/resources/plugins/datatables/dataTables.bootstrap.css">
-        <!-- Select2 -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-        <!-- Ionicons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="${cp}/resources/css/AdminLTE.min.css">
-        <link rel="stylesheet" href="${cp}/resources/css/skins/skin-blue.min.css">
-        
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+         <jsp:include page="header.jsp" />
+         
         <style>
             .appntment-text{
                 font-size: 14px;
@@ -50,61 +28,9 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini fixed">
         <div class="wrapper">
+            <jsp:include page="main-header.jsp" />
             
-            <header class="main-header">
-                <!-- Logo -->
-                <a href="../../index2.html" class="logo">
-                    <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini">
-                        <b>E</b>DU</span>
-                    <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg">
-                        <b>Edu</b>Can</span>
-                </a>
-                <!-- Header Navbar: style can be found in header.less -->
-                <nav class="navbar navbar-static-top">
-                    <!-- Sidebar toggle button-->
-                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    
-                    <div class="navbar-custom-menu">
-                        <ul class="nav navbar-nav">
-                            <!-- User Account: style can be found in dropdown.less -->
-                            <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="${cp}/resources/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">${identity.getFirstName()} ${identity.getLastName()}</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <!-- User image -->
-                                    <li class="user-header">
-                                        <img src="${cp}/resources/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                        
-                                        <p>${identity.getUsername()}</p>
-                                    </li>
-                                    <!-- Menu Footer-->
-                                    <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <form id="logoutForm" action="${cp}/student/signout" method="post">
-                                                <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-default btn-flat">Sign out</a>
-                                            </form>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-            <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar">
+             <aside class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
@@ -128,9 +54,9 @@
                         </li>
                         <li class="treeview active">
                             <a href="javascript:void(0)"><i class="fa fa-th"></i> <span>Appointment</span></a>
-                            <ul class="treeview-menu">
+                            <ul class="treeview-menu active menu-open">
                                 <li class="active"><a href="${cp}/student/appointment/create"><i class="fa fa-circle-o"></i> Make Appointment</a></li>
-                                <li><a href="${cp}/student/appointment/cancel"><i class="fa fa-circle-o"></i> Appointment History</a></li>
+                                <li><a href="${cp}/student/appointment/cancel"><i class="fa fa-circle-o"></i> Cancel Appointment</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -226,31 +152,11 @@
                 </section>
             </div>
             <!-- /.content-wrapper -->
-            <footer class="main-footer">
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.3.3
-                </div>
-                <strong>Copyright &copy; 2014-2015
-                    <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-            </footer>
+             <jsp:include page="footer.jsp" />
         </div>
         <!-- ./wrapper -->
         
-        <!-- jQuery 2.2.0 -->
-        <script src="${cp}/resources/plugins/jQuery/jQuery-2.2.0.min.js"></script>
-        <!-- Bootstrap 3.3.6 -->
-        <script src="${cp}/resources/bootstrap/js/bootstrap.min.js"></script>
-        <!-- DataTables -->
-        <script src="${cp}/resources/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="${cp}/resources/plugins/datatables/dataTables.bootstrap.min.js"></script>
-        <!-- Select2 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
-        <!-- FastClick -->
-        <script src="${cp}/resources/plugins/fastclick/fastclick.js"></script>
-        <!-- SlimScroll -->
-        <script src="${cp}/resources/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="${cp}/resources/js/app.min.js"></script>
+        <jsp:include page="page-vendor-script.jsp"/>
         
         <script>
             var app={
@@ -343,6 +249,7 @@
                 }
             };
             var setStudentAppointment=function(data){
+                console.log(JSON.stringify(data));
                 $.ajax({
                     type:"POST",
                     url: "/educan.oas/student/appointment/create",

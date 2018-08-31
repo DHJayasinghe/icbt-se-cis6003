@@ -15,7 +15,8 @@ public class GmailSmtp {
     private final String to;
     private final String from = "educan.lk@gmail.com";
     private final String username = "educan.lk@gmail.com";
-    private final String password = "Educan@#123";
+    private final String password = ""
+            + "";
     private final String subject;
     private final String body;
 
